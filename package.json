@@ -1,0 +1,19 @@
+{
+  "name": "exchangegraphql",
+  "version": "1.0.0",
+  "description": "eXchange Refactoed to work with GraphQL",
+  "main": "bootstrap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wborbajr/eXchangeGraphQL.git"
+  },
+  "author": "Waldir Borba Junior <wborbajr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wborbajr/eXchangeGraphQL/issues"
+  },
+  "homepage": "https://github.com/wborbajr/eXchangeGraphQL#readme"
+}
