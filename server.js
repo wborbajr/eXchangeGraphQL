@@ -1,28 +1,33 @@
 import express from "express";
+import cors from "cors";
+// GraphQL
 import { ApolloServer, gql } from "apollo-server-express";
+import typeDefs from "./schema";
+import resolvers from "./resolvers";
+// Database
+import db from "./models";
+// Mockup
 import faker from "faker";
 import times from "lodash.times";
 import random from "lodash.random";
-import typeDefs from "./schema";
-import resolvers from "./resolvers";
-import db from "./models";
 
 const playground = {
   settings: {
-    "editor.cursorShape": "line"
-  }
+    "editor.cursorShape": "line",
+  },
 };
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
   resolvers,
   context: { db },
-  playground
+  playground,
 });
 
 const app = express();
 server.applyMiddleware({ app });
 
+app.use("*", cors());
 app.use(express.static("app/public"));
 
 db.sequelize.sync().then(() => {
@@ -30,7 +35,7 @@ db.sequelize.sync().then(() => {
   db.author.bulkCreate(
     times(10, () => ({
       firstName: faker.name.firstName(),
-      lastName: faker.name.lastName()
+      lastName: faker.name.lastName(),
     }))
   );
   // populate post table with dummy data
@@ -38,11 +43,11 @@ db.sequelize.sync().then(() => {
     times(10, () => ({
       title: faker.lorem.sentence(),
       content: faker.lorem.paragraph(),
-      authorId: random(1, 10)
+      authorId: random(1, 10),
     }))
   );
 
-  app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  app.listen({ port: 4040 }, () =>
+    console.log(`🚀 Server ready at http://localhost:4040${server.graphqlPath}`)
   );
 });
