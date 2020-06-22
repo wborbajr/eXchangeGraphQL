@@ -1,7 +1,7 @@
 {
-  "name": "graphqlApiNodeDemo",
+  "name": "exchangegraphql",
   "version": "1.0.0",
-  "description": "",
+  "description": "eXchange Refactored to work with GraphQL",
   "scripts": {
     "build": "webpack --entry ./app/public/js/index.js --output-filename bundle.min.js --output-path ./app/public/js ",
     "start": "nodemon --exec babel-node server.js",
@@ -24,8 +24,8 @@
   },
   "private": true,
   "keywords": [],
-  "author": "Infocentric Research AG, Baden, Switzerland",
-  "license": "ISC",
+  "author": "Waldir Borba Junior <wborbajr@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -37,5 +37,13 @@
     "sequelize-cli": "^4.0.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wborbajr/eXchangeGraphQL.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wborbajr/eXchangeGraphQL/issues"
+  },
+  "homepage": "https://github.com/wborbajr/eXchangeGraphQL#readme"
 }
